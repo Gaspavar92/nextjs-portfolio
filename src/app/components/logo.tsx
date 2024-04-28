@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import gsap from "gsap";
-import { Protest_Riot } from "next/font/google";
-const protest = Protest_Riot({weight: ["400"], subsets: ['latin']})
 import { useGSAP } from "@gsap/react";
+import { protest } from "../fonts";
 
 export default function Logo() {
     
@@ -34,10 +33,10 @@ export default function Logo() {
     let i = 0;
 
     return (
-        <div className={`${protest.className} p-5 text-4xl w-fit`} onMouseEnter={charAnimation} onMouseLeave={endCharAnimation}>
-            <Link href={"./"}>
+        <div className={`${protest.className} logo p-5 text-4xl w-fit invisible px-20`} onMouseEnter={charAnimation} onMouseLeave={endCharAnimation}>
+            <Link href={"./"} className="text-white flex">
                 {characters.map(char => {
-                return <p className="characters inline-block text-white" key={`${char}-${i++}`}>{char}</p>
+                return <p className="characters inline-block" key={`${char}-${i++}`}>{char}</p>
             })}
             </Link>
             </div>
