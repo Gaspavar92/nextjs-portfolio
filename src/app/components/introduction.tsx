@@ -3,18 +3,17 @@
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
-import { Titan_One } from "next/font/google";
-import { Gloria_Hallelujah } from "next/font/google";
-import { Yatra_One } from "next/font/google";
-const titan = Titan_One({weight: "400", subsets: ["latin"]});
-const gloria = Gloria_Hallelujah({weight: "400", subsets: ["latin"]});
-const yatra = Yatra_One({weight: "400", subsets: ["latin"]});
+import { titan, gloria, yatra } from "../fonts";
+import { MouseEventHandler } from "react";
 
-export default function Introduction() {
+interface props {
+    handleClick: MouseEventHandler
+}
 
-    gsap.registerPlugin(useGSAP,TextPlugin);
+export default function Introduction({handleClick}: props) {
 
     useGSAP(() => {
+        gsap.registerPlugin(useGSAP,TextPlugin);
         // gsap.set('.introduction', {xPercent: 30})
         gsap.to('.introduction', {autoAlpha: 1});
 
@@ -23,14 +22,14 @@ export default function Introduction() {
             fontFamily: "'Arial', sans-serif", 
             fontWeight: "600", 
             color: "#ff591c", 
-            repeat: 1 
+            repeat: 1
         }) // Orange
         .to('.changingText', { 
-            text: "Front-End Maestro", 
+            text: "Front-End Developer", 
             yoyo: true, 
             repeat: 1, 
             duration: 2, 
-            delay: 3 
+            delay: 3,
         }, '<')
         .set('.changingText', { 
             fontFamily: "'Roboto', sans-serif", 
@@ -39,7 +38,7 @@ export default function Introduction() {
             repeat: 1 
         }) // Green
         .to('.changingText', { 
-            text: "GSAP Artist", 
+            text: "GSAP Composer", 
             yoyo: true, 
             repeat: 1, 
             duration: 2 
@@ -51,7 +50,7 @@ export default function Introduction() {
             repeat: 1 
         }) // Blue
         .to('.changingText', { 
-            text: "React Rockstar", 
+            text: "React Enthusiast", 
             yoyo: true, 
             repeat: 1, 
             duration: 2 
@@ -63,7 +62,7 @@ export default function Introduction() {
             repeat: 1 
         }) // Amber
         .to('.changingText', { 
-            text: "Javascript Wizard", 
+            text: "Javascript Lover", 
             yoyo: true, 
             repeat: 1, 
             duration: 2 
@@ -75,7 +74,7 @@ export default function Introduction() {
             repeat: 1 
         }) // Purple
         .to('.changingText', { 
-            text: "CSS Connoisseur", 
+            text: "CSS Aficionado", 
             yoyo: true, 
             repeat: 1, 
             duration: 2 
@@ -87,7 +86,7 @@ export default function Introduction() {
             repeat: 1 
         }) // Pink
         .to('.changingText', { 
-            text: "Passionate Innovator", 
+            text: "Tech Explorer", 
             yoyo: true, 
             repeat: 1, 
             duration: 2 
@@ -100,31 +99,32 @@ export default function Introduction() {
         .from('.my-name-is', {opacity: 0, x: 400, ease: "back", stagger: 0.1, duration:1})
         .from('.i-am-a', {opacity: 0, x: -400, ease: "back", duration:1}, '<')
         .from('.name', {rotate: -360, ease: "back", x:-1500, duration: 1.5}, '<=0.4')
-        .to('.introduction', {rotateY: 25, rotateX: 20, xPercent: -30, y: 60, delay: 1})
-        .to('.hello', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<') // Dark blue shadow
-        .to('.my-name-is', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<') // Dark blue shadow
-        .to('.name', {rotate: 0, rotateY: 30, rotateX: 20}, '<')
-        .to('.i-am-a', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<') // Dark blue shadow
-        .to('.changingText', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<') // Dark blue shadow
+        .to('.introduction', {rotateY: 25, rotateX: 20, xPercent: -45, y: 60, delay: 1})
+        .to('.hello', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
+        .to('.my-name-is', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
+        .to('.name', {rotate: 0, rotateY: 30, rotateX: 20, boxShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
+        .to('.i-am-a', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
+        .to('.changingText', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
         .to('.text-container', {rotateY: 30, rotateX: 20}, '<')
-        .to('.blinker', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<') // Dark blue shadow
+        .to('.blinker', {rotateY: 30, rotateX: 20, boxShadow: "#000032cc -25px 15px 5px"}, '<')
         .set('.portrait', {xPercent: 200}, '<')
-        .to('.portrait', {xPercent: 0, autoAlpha: 1}, '<');
+        .to('.portrait', {xPercent: 0, autoAlpha: 1}, '<')
+        .fromTo('.ball', {scale:0}, {scale: 1, stagger: 0.2, ease: "back(3)", duration: 0.4}, '<=0.8')
     }, []);
     
     function hover() {
-        gsap.to('.name', {rotateX: 0, rotateY: 0, backgroundColor: "rgb(103,232,249)", color: "black"})
+        gsap.to('.name', {rotateX: -5, rotateY: 5, backgroundColor: "rgb(2 132 199)", color: "black", scale: 1.2, boxShadow: "rgba(0, 0, 50, 0.8) -15px 10px 15px -5px", webkitTextStrokeWidth: "2px", webkitTextStrokeColor: "white"})
     }
 
     function stopHover() {
-        gsap.to('.name', {rotateX: 20, rotateY: 35, backgroundColor: "transparent", color: "white"})
+        gsap.to('.name', {rotateX: 20, rotateY: 35, backgroundColor: "transparent", color: "white", scale: 1, boxShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px 0px"})
     }
 
     return (
-        <div className="introduction w-[50%] min-w-fit h-full text-center text-white text-2xl flex flex-col gap-2 bg-transparent m-auto px-10 py-4 rounded shadow-cyan-500 invisible">
+        <div className="introduction w-[50%] min-w-fit h-full text-center text-white text-2xl flex flex-col gap-2 bg-transparent px-10 py-4 rounded invisible z-10">
             <p className={`${titan.className} hello text-7xl`}>Hello</p>
             <p className={`${gloria.className} my-name-is`}>my name is</p>
-            <div className={`${yatra.className} name text-5xl border-cyan-300 border-solid border-4 w-fit mx-auto my-5 px-20 py-2 rounded-md rotate-6 shadow-cyan-300 shadow-[0px_0px_20px_5px]`} onMouseEnter={hover} onMouseLeave={stopHover}><p>GASPARE</p></div>
+            <div className={`${yatra.className} name text-5xl border-sky-600 border-solid border-4 w-fit mx-auto my-5 px-20 py-2 rounded-md rotate-6 shadow-sky-600 shadow-[0px_0px_20px_5px] bg-[#0f133c] cursor-pointer`} onMouseEnter={hover} onMouseLeave={stopHover} onClick={handleClick}><p>GASPARE</p></div>
             <p className={`${gloria.className} i-am-a`}>I am a</p>
             <div className="text-container flex justify-center">
                 <p className="changingText text-5xl inline-block"></p><span className="blinker h-10 w-1 ml-1 bg-amber-500 inline-block"></span>
