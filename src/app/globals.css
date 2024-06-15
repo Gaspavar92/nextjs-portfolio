@@ -6,10 +6,6 @@
   background-image: radial-gradient(circle, rgb(37, 54, 115) 0%, rgb(15, 19, 60) 100%)
 }
 
-.characters {
-  perspective: 1000px;
-}
-
 .blinker {
   animation: blink .5s linear infinite;
 }
@@ -24,10 +20,58 @@
 }
 
 .introduction {
-  perspective: 800px;
+  perspective: 900px;
+  transform-style: preserve-3d;
 }
 
 .wrapper {
   max-width: 80vw;
   margin: 0 auto;
+}
+
+.intro-container {
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY));
+}
+
+.section {
+  margin-top: 100px;
+}
+
+.before {
+  background-image: linear-gradient(to right, rgb(12, 15, 48), rgba(37, 54, 115, 0));
+}
+
+.after {
+  background-image: linear-gradient(to left, rgb(12, 15, 48), rgba(37, 54, 115, 0));
+}
+
+/* .img {
+  transition: 0.3s;
+}
+
+.img:hover {
+  transform: scale(1.4)
+}
+
+.img:has(+ .img:hover) {
+  transform: scale(1.2) translateY(-10px) translateX(-5px);
+  margin-right: 20px;
+}
+
+.img:hover + .img {
+  transform: scale(1.2) translateY(-10px) translateX(5px);
+  margin-left: 20px;
+} */
+
+.tech-icon + .img-text {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.img:hover .img-text {
+  opacity: 1;
+}
+
+.img:hover .tech-icon {
+  transform: translateY(-20px);
 }
