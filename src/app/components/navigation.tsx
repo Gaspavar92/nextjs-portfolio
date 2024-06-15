@@ -9,9 +9,11 @@ export default function Nav() {
 
     useGSAP(() => {
         gsap.timeline()
-        .from('.nav', {x: 1000, delay: 4, ease: "back(4)", duration: 1.2})
-        .from('.nav', {width: 70, height: 70, duration: 1})
+        .to('.nav', {autoAlpha: 1})
+        .from('.nav', {x: 1000, delay: 4, ease: "back(4)", duration: 1.2}, '<')
+        .fromTo('.nav', {width: 70, height: 70}, {width: "95%", duration: 1})
         .to('.logo', {autoAlpha: 1}, '<=0.6')
+        .to('.close-button', {autoAlpha: 1}, '<')
         .from('.nav-element', {y: -60, stagger: 0.3}, '<=0.5')
         .to('.nav-element', {autoAlpha: 1, stagger: 0.3}, '<')
     });
@@ -28,12 +30,31 @@ export default function Nav() {
         gsap.to(target.querySelector('.icon'), {autoAlpha: 0, x: 0, duration: 0.2})
     }
 
+    function close(e: React.MouseEvent): void {
+        const target = e.currentTarget.parentElement as HTMLElement;
+        if (target.clientWidth === 70) {
+            gsap.timeline()
+                .to('.nav', {width: "95%", left: "50%", duration: 0.3})
+                .to('.arrow', {rotate: 0}, '<');
+        } else {
+            gsap.timeline()
+                .to('.nav', {width: 70, left: "5.2%", duration: 0.3})
+                .to('.arrow', {rotate: 180}, '<');
+
+        }
+    }
+
     return (
-      <nav className="nav w-[95vw] h-[70px] m-auto rounded-full bg-sky-600 flex content-center flex-wrap justify-between shadow-md shadow-[#000032cc] relative">
+      <nav className="nav w-[95%] h-[70px] left-1/2 -translate-x-1/2 rounded-full bg-sky-600 flex justify-between shadow-md shadow-[#000032cc] fixed invisible z-50 overflow-hidden">
+        <button onClick={close} className="close-button absolute left-[35px] -translate-x-1/2 top-1/2 -translate-y-1/2 hover:scale-125 duration-200 invisible">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 arrow">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+        </button>
         <Logo />
         <ul className={`${bangers.className} nav-list flex gap-20 px-20 text-3xl`}>
             <li className="nav-element tracking-wide flex content-center flex-wrap invisible text-white px-2 justify-start" onMouseEnter={hover} onMouseLeave={hoverEnd}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="icon w-6 h-6 absolute invisible top-[50%] translate-y-[-50%]">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="icon w-6 h-6 absolute invisible top-1/2 -translate-y-1/2">
                 <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clipRule="evenodd" />
                 </svg>
                 <span className="line bg-orange-500 absolute inline-block h-1 rounded-full bottom-4 left-0"></span><a href="#">ABOUT</a>
