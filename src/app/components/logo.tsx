@@ -33,7 +33,7 @@ export default function Logo() {
     let i = 0;
 
     return (
-        <div className={`${protest.className} logo p-5 text-4xl w-fit invisible px-20 content-center flex flex-wrap`} onMouseEnter={charAnimation} onMouseLeave={endCharAnimation}>
+        <div className={`${protest.className} logo p-5 text-4xl w-fit invisible px-20 content-center flex flex-wrap`}>
             <Link href={"./"} className="text-white flex">
                 {characters.map(char => {
                 return <p className="characters inline-block" key={`${char}-${i++}`}>{char}</p>

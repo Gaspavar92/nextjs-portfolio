@@ -118,11 +118,10 @@ export default function Introduction({handleClick}: props) {
                 scrollTrigger: {
                     trigger: '.hero',
                     toggleActions: "play none none reverse",
-                    start: "80px 100px",
-                    markers: true
+                    start: "20% 10%",
                 },
                 x: -800,
-                duration: 0.7,
+                duration: 0.9,
                 ease: "back.in",
                 opacity: 0,
             })
@@ -131,11 +130,10 @@ export default function Introduction({handleClick}: props) {
                 scrollTrigger: {
                     trigger: '.hero',
                     toggleActions: "play none none reverse",
-                    start: "80px 100px",
-                    markers: true
+                    start: "20% 10%",
                 },
                 x: 800,
-                duration: 0.7,
+                duration: 0.9,
                 ease: "back.in",
                 opacity: 0,
             })
@@ -152,12 +150,12 @@ export default function Introduction({handleClick}: props) {
     return (
         <div className="intro-container h-full w-full text-center text-white text-2xl flex flex-col bg-transparent px-10 py-4 rounded relative">
             <div className="introduction w-full absolute left-full translate-x-[-50%] invisible gap-2 flex flex-col justify-center content-center">
-                <p className={`${titan.className} hello text-7xl`}>Hello</p>
-                <p className={`${gloria.className} my-name-is`}>my name is</p>
-                <div className={`${yatra.className} name text-5xl border-sky-600 border-solid border-4 w-fit mx-auto my-5 px-20 py-2 rounded-md rotate-6 shadow-sky-600 shadow-[0px_0px_20px_5px] bg-[#0f133c] cursor-pointer`} onMouseEnter={hover} onMouseLeave={stopHover} onClick={handleClick}><p>GASPARE</p></div>
-                <p className={`${gloria.className} i-am-a`}>I am a</p>
+                <p className={`${titan.className} hello text-7xl lg:text-8xl`}>Hello</p>
+                <p className={`${gloria.className} my-name-is lg:text-2xl`}>my name is</p>
+                <div className={`${yatra.className} name text-5xl lg:text-6xl border-sky-600 border-solid border-4 w-fit mx-auto my-5 px-20 py-2 rounded-md rotate-6 shadow-sky-600 shadow-[0px_0px_20px_5px] bg-[#0f133c] cursor-pointer`} onMouseEnter={hover} onMouseLeave={stopHover} onClick={handleClick}><p>GASPARE</p></div>
+                <p className={`${gloria.className} i-am-a lg:text-2xl`}>I am a</p>
                 <div className="text-container flex justify-center">
-                    <p className="changingText text-5xl inline-block"></p><span className="blinker h-10 w-1 ml-2 bg-amber-500 inline-block"></span>
+                    <p className="changingText text-5xl lg:text-6xl inline-block"></p><span className="blinker h-10 lg:h-12 w-1 ml-2 bg-amber-500 inline-block"></span>
                 </div>
             </div>
         </div>

@@ -50,7 +50,7 @@ export default function TechStack() {
 
 
     return (
-        <div ref={parent} className="section image-container flex w-screen relative" onMouseEnter={hover} onMouseLeave={hoverStop}>
+        <div ref={parent} className="section image-container flex w-screen relative z-10" onMouseEnter={hover} onMouseLeave={hoverStop}>
             <div className="before absolute w-1/6 h-full z-10 left-0"></div>
             <div ref={containerRef} className={`${bangers.className} tech-stack flex flex-wrap shrink-0 basis-auto py-4 box-border text-xl tracking-wider`}>
                 {stack.map(image => {
