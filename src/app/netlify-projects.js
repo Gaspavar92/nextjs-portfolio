@@ -3,7 +3,7 @@ const getProjects = async() => {
     const request = await fetch(url, {
         method: "GET",
         headers: {
-            "Authorization": "Bearer nfp_KZta4KZ9asZPn52Nh6ZQM3GiYG69Y6Drbd59",
+            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
             "Content-Type": "application/json"
         }
 

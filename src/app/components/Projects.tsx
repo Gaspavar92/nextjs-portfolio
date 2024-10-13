@@ -144,7 +144,7 @@ const Projects = () => {
                                         <p className="text-sky-600">Repo</p>
                                     </a>
                                 </div>
-                                <div className="technical-stack grid grid-cols-3 items-center gap-2 md:gap-4">
+                                <div className="technical-stack flex items-center gap-2 md:gap-4 overflow-x-auto">
                                     {descriptions[project.name].tech.map(iconUrl => {
                                         return <Image key={project.name} id={project.name} className="tech-icon" src={iconUrl} height={20} width={20} alt="Tech stack icon"/>
                                     })}
