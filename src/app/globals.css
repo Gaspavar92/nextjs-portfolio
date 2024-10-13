@@ -33,10 +33,6 @@
     transform: rotateX(var(--rotateX)) rotateY(var(--rotateY));
 }
 
-.section {
-  margin-top: 100px;
-}
-
 .before {
   background-image: linear-gradient(to right, rgb(12, 15, 48), rgba(37, 54, 115, 0));
 }
@@ -75,3 +71,41 @@
 .img:hover .tech-icon {
   transform: translateY(-20px);
 }
+
+.social-icon:hover .social-icon-name {
+  opacity: 1;
+}
+
+.project-info, .project-info > * {
+  filter: brightness(100%);
+  opacity: 0;
+}
+
+.project-card img, .project-card, .project-info, .project-info > * {
+  transition: .2s;
+}
+
+.project-card:hover .project-img {
+  filter: brightness(50%) blur(3px);
+}
+
+.project-card .project-img {
+  filter: brightness(90%);
+}
+
+.project-card {
+  border: 3px solid transparent;
+}
+
+.project-card:hover {
+  border: 3px solid white;
+}
+
+.project-card:hover .project-info, .project-card:hover .project-info > * {
+  opacity: 1;
+}
+
+.project-card:hover .project-info {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
