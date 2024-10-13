@@ -146,7 +146,7 @@ const Projects = () => {
                                 </div>
                                 <div className="technical-stack grid grid-cols-3 items-center gap-2 md:gap-4">
                                     {descriptions[project.name].tech.map(iconUrl => {
-                                        return <Image className="tech-icon" src={iconUrl} height={20} width={20} alt="Tech stack icon"/>
+                                        return <Image key={project.name} id={project.name} className="tech-icon" src={iconUrl} height={20} width={20} alt="Tech stack icon"/>
                                     })}
                                 </div>
                             </div>
