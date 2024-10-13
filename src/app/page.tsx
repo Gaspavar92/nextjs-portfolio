@@ -3,10 +3,10 @@
 import {gsap} from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Introduction from "./components/Introduction";
-import Nav from "./components/Navigation";
-import Portrait from "./components/Portrait";
-import About from "./components/About";
+import Introduction from "./components/introduction";
+import Nav from "./components/navigation";
+import Portrait from "./components/portrait";
+import About from "./components/about";
 import Footer from "./components/Footer";
 import Projects from "./components/Projects"
 

@@ -2,7 +2,7 @@ import Image from "next/image";
 import {gsap} from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import TechStack from "./Stack";
+import TechStack from "./stack";
 
 export default function About() {
 

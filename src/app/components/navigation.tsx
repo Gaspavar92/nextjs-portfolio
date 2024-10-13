@@ -3,7 +3,7 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import Logo from "./Logo";
+import Logo from "./logo";
 import { bangers } from "../fonts";
 
 export default function Nav() {
