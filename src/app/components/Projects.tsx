@@ -1,19 +1,19 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import getProjects from "../netlify-projects"
+import getProjects from "../netlify-projects";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { bangers } from "../fonts";
-import { sono } from "../fonts";
+import { bangers, sono } from "../fonts";
+import { Project } from "../types";
 
 
 const Projects = () => {
 
-    const [projects, setProjects] = useState([])
+    const [projects, setProjects] = useState<Project[]>([])
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("")
 
-    const descriptions = {
+    const descriptions: { [key: string]: {name: string, description: string, tech: string[]} } = {
         "sketchy-sketch": {
             name: "Sketchy Sketch",
             description: "Board that allows you to create fun and colored pixel drawings.",
@@ -38,8 +38,6 @@ const Projects = () => {
             tech: [
                 "/react.svg",
                 "/typescript-icon-round.svg",
-                "/html-5.svg",
-                "/css-3.svg",
                 "/tailwindcss-icon.svg"
             ]
         },
@@ -49,7 +47,6 @@ const Projects = () => {
             tech: [
                 "/react.svg",
                 "/javascript.svg",
-                "/html-5.svg",
                 "/sass.svg"
             ]
         },
@@ -59,8 +56,6 @@ const Projects = () => {
             tech: [
                 "/react.svg",
                 "/typescript-icon-round.svg",
-                "/html-5.svg",
-                "/css-3.svg",
                 "/tailwindcss-icon.svg"
             ]
         },
@@ -99,7 +94,7 @@ const Projects = () => {
                 const projs = await getProjects();
                 setProjects(projs)
             } catch(err) {
-                setError(err)
+                setError(String(err))
             } finally {
                 setLoading(false)
             }

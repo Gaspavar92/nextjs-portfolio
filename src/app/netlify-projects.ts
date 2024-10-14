@@ -1,3 +1,5 @@
+import { Project } from "./types";
+
 const getProjects = async() => {
     const url = "https://api.netlify.com/api/v1/sites";
     const request = await fetch(url, {
@@ -9,7 +11,7 @@ const getProjects = async() => {
 
     })
 
-    const response = await request.json();
+    const response: Project[] = await request.json();
     console.log(response);
     return response;
 }
