@@ -100,16 +100,17 @@ export default function Introduction({handleClick}: props) {
             .from('.my-name-is', {opacity: 0, x: 400, ease: "back", stagger: 0.1, duration:1})
             .from('.i-am-a', {opacity: 0, x: -400, ease: "back", duration:1}, '<')
             .from('.name', {rotate: -360, ease: "back", x:-1500, duration: 1.5}, '<=0.4')
-            .to('.introduction', {xPercent: -50, y: 60, delay: 1})
-            .to('.hello', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
-            .to('.my-name-is', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
-            .to('.name', {rotate: 0, rotateY: 30, rotateX: 20, z: 100, boxShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
-            .to('.i-am-a', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
-            .to('.changingText', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
-            .to('.text-container', {rotateY: 30, rotateX: 20}, '<')
-            .to('.blinker', {rotateY: 30, rotateX: 20, boxShadow: "#000032cc -25px 15px 5px"}, '<')
-            .set('.portrait', {xPercent: 200}, '<')
-            .to('.portrait', {xPercent: 0, autoAlpha: 1}, '<')
+            // .to('.introduction', {xPercent: -50, y: 60, delay: 1})
+            // .to('.hello', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
+            // .to('.my-name-is', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
+            // .to('.name', {rotate: 0, rotateY: 30, rotateX: 20, z: 100, boxShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
+            // .to('.i-am-a', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
+            // .to('.changingText', {rotateY: 30, rotateX: 20, textShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px"}, '<')
+            // .to('.text-container', {rotateY: 30, rotateX: 20}, '<')
+            // .to('.blinker', {rotateY: 30, rotateX: 20, boxShadow: "#000032cc -25px 15px 5px"}, '<')
+            // .set('.portrait', {xPercent: 200}, '<')
+            .from('.introduction', {translateX: "-50%", left: "100%"})
+            .to('.portrait', {autoAlpha: 1}, '<')
             .to('.image-container', {autoAlpha: 1}, '<')
             .fromTo('.ball', {scale:0}, {scale: 1, stagger: 0.2, ease: "back(3)", duration: 0.4}, '<=0.8');
 
@@ -120,8 +121,8 @@ export default function Introduction({handleClick}: props) {
                     toggleActions: "play none none reverse",
                     start: "20% 10%",
                 },
-                x: -800,
-                duration: 0.9,
+                // x: -800,
+                duration: 0.4,
                 ease: "back.in",
                 opacity: 0,
             })
@@ -132,30 +133,30 @@ export default function Introduction({handleClick}: props) {
                     toggleActions: "play none none reverse",
                     start: "20% 10%",
                 },
-                x: 800,
-                duration: 0.9,
+                // x: 800,
+                duration: 0.4,
                 ease: "back.in",
                 opacity: 0,
             })
     }, []);
     
     function hover() {
-        gsap.to('.name', {rotateX: -5, rotateY: 5, backgroundColor: "rgb(2 132 199)", color: "black", scale: 1.2, boxShadow: "rgba(0, 0, 50, 0.8) -15px 10px 15px -5px", webkitTextStrokeWidth: "2px", webkitTextStrokeColor: "white"})
+        gsap.to('.name', {backgroundColor: "rgb(2 132 199)", color: "black", scale: 1.2, webkitTextStrokeWidth: "2px", webkitTextStrokeColor: "white", rotate: 0})
     }
 
     function stopHover() {
-        gsap.to('.name', {rotateX: 20, rotateY: 35, backgroundColor: "transparent", color: "white", scale: 1, boxShadow: "rgba(0, 0, 50, 0.8) -25px 15px 5px 0px"})
+        gsap.to('.name', {backgroundColor: "transparent", color: "white", scale: 1, rotate: 6})
     }
 
     return (
-        <div className="intro-container h-full w-full text-center text-white text-2xl flex flex-col bg-transparent px-10 py-4 rounded relative">
-            <div className="introduction w-full absolute left-full translate-x-[-50%] invisible gap-2 flex flex-col justify-center content-center">
-                <p className={`${titan.className} hello text-7xl lg:text-8xl`}>Hello</p>
-                <p className={`${gloria.className} my-name-is lg:text-2xl`}>my name is</p>
-                <div className={`${yatra.className} name text-5xl lg:text-6xl border-sky-600 border-solid border-4 w-fit mx-auto my-5 px-20 py-2 rounded-md rotate-6 shadow-sky-600 shadow-[0px_0px_20px_5px] bg-[#0f133c] cursor-pointer`} onMouseEnter={hover} onMouseLeave={stopHover} onClick={handleClick}><p>GASPARE</p></div>
-                <p className={`${gloria.className} i-am-a lg:text-2xl`}>I am a</p>
-                <div className="text-container flex justify-center">
-                    <p className="changingText text-5xl lg:text-6xl inline-block"></p><span className="blinker h-10 lg:h-12 w-1 ml-2 bg-amber-500 inline-block"></span>
+        <div className="intro-container h-full w-full text-center text-white text-2xl flex flex-col bg-transparent px-10 py-4 rounded relative justify-center">
+            <div className="introduction absolute w-full invisible gap-2 flex flex-col justify-center content-center">
+                <p className={`${titan.className} hello text-4xl md:text-5xl lg:text-6xl`}>Hello</p>
+                <p className={`${gloria.className} my-name-is text-lg md:text-xl lg:text-2xl`}>my name is</p>
+                <div className={`${yatra.className} name text-3xl md:text-4xl lg:text-5xl border-sky-600 border-solid border-4 w-fit mx-auto my-5 px-20 py-2 rounded-md rotate-6 shadow-sky-600 shadow-[0px_0px_20px_5px] bg-[#0f133c] cursor-pointer`} onMouseEnter={hover} onMouseLeave={stopHover} onClick={handleClick}><p>GASPARE</p></div>
+                <p className={`${gloria.className} i-am-a text-lg md:text-xl lg:text-2xl`}>I am a</p>
+                <div className="text-container flex justify-center h-[60px]">
+                    <p className="changingText text-3xl md:text-4xl lg:text-5xl inline-block"></p><span className="blinker h-10 lg:h-12 w-1 ml-2 bg-amber-500 inline-block"></span>
                 </div>
             </div>
         </div>

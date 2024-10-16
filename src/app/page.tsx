@@ -22,8 +22,8 @@ export default function Home() {
   return (
     <main className="bg w-screen bg-fixed bg-cover pt-10 overflow-x-hidden min-h-screen">
       <Nav />
-      <div className="hero my-[100px] mx-auto max-w-[80vw] flex items-center h-[75vh]">
-        <div className="h-[450px] w-full flex justify-around content-center">
+      <div className="hero my-[200px] md:my-[80px] mx-auto max-w-[80vw] flex items-center h-[75vh]">
+        <div className="h-[450px] w-full gap-40 md:gap-12 flex flex-col md:flex-row justify-around content-center">
           <Introduction handleClick={portraitAnimation}/>
           <Portrait handleClick={portraitAnimation}/>
         </div>
