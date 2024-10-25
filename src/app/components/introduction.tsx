@@ -151,12 +151,12 @@ export default function Introduction({handleClick}: props) {
     return (
         <div className="intro-container h-full w-full text-center text-white text-2xl flex flex-col bg-transparent px-10 py-4 rounded relative justify-center">
             <div className="introduction absolute w-full invisible gap-2 flex flex-col justify-center content-center">
-                <p className={`${titan.className} hello text-4xl md:text-5xl lg:text-6xl`}>Hello</p>
+                <p className={`${titan.className} hello text-6xl md:text-5xl lg:text-6xl`}>Hello</p>
                 <p className={`${gloria.className} my-name-is text-lg md:text-xl lg:text-2xl`}>my name is</p>
-                <div className={`${yatra.className} name text-3xl md:text-4xl lg:text-5xl border-sky-600 border-solid border-4 w-fit mx-auto my-5 px-20 py-2 rounded-md rotate-6 shadow-sky-600 shadow-[0px_0px_20px_5px] bg-[#0f133c] cursor-pointer`} onMouseEnter={hover} onMouseLeave={stopHover} onClick={handleClick}><p>GASPARE</p></div>
+                <div className={`${yatra.className} name text-4xl lg:text-5xl border-sky-600 border-solid border-4 w-fit mx-auto my-5 px-12 lg:px-20 py-2 rounded-md rotate-6 shadow-sky-600 shadow-[0px_0px_20px_5px] bg-[#0f133c] cursor-pointer`} onMouseEnter={hover} onMouseLeave={stopHover} onClick={handleClick}><p>GASPARE</p></div>
                 <p className={`${gloria.className} i-am-a text-lg md:text-xl lg:text-2xl`}>I am a</p>
                 <div className="text-container flex justify-center h-[60px]">
-                    <p className="changingText text-3xl md:text-4xl lg:text-5xl inline-block"></p><span className="blinker h-10 lg:h-12 w-1 ml-2 bg-amber-500 inline-block"></span>
+                    <p className="changingText text-3xl lg:text-5xl inline-block whitespace-nowrap"></p><span className="blinker h-10 lg:h-12 w-1 ml-2 bg-amber-500 inline-block"></span>
                 </div>
             </div>
         </div>

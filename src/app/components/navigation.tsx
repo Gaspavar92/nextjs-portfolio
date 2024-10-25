@@ -38,8 +38,7 @@ export default function Nav() {
         gsap.to(window, {
             duration: .6,
             scrollTo: {
-                y: `#${id}`,
-                offsetY: 160
+                y: `#${id}`
             }
         })
     }
