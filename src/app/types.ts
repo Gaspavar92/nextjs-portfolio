@@ -7,3 +7,9 @@ export interface Project {
         repo_url: string;
     };
 }
+
+
+export interface ChatMessage {
+    role: string;
+    message: string;
+}

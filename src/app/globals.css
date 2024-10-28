@@ -112,17 +112,3 @@
 .project-card:hover .project-info {
   background-color: rgba(0, 0, 0, 0.7);
 }
-
-.about-text {
-  z-index: 0;
-}
-
-.about-text::before {
-  content: "";
-  height: 300px;
-  width: 500px;
-  background-color: orange;
-  display: block;
-  position: absolute;
-  z-index: -1;
-}
