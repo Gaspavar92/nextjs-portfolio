@@ -44,9 +44,9 @@ export default function About() {
             <div id="about" className={`${protest.className} about about-text section-title text-[25vw] md:h-screen h-[60vh] flex items-center w-screen`}>{about.map((letter, index) => {
                 return <p key={index} className="about-letter inline-block invisible">{letter}</p>
             })}</div>
-            <div className="wrapper flex flex-col md:flex-row w-full h-full justify-evenly">
-                <Image src={"/Gaspare-about.png"} height={"200"} width={"200"} alt={"Gaspare's picture with his son Noah"} className="about-image rounded-lg invisible h-full w-full md:w-1/3"/>
-                    <ChatBot />
+            <div className="wrapper flex flex-col md:flex-row w-full h-full justify-evenly items-center gap-6">
+                <Image src={"/Gaspare-about.png"} height={"200"} width={"200"} alt={"Gaspare's picture with his son Noah"} className="about-image rounded-lg invisible h-1/2 w-full md:w-1/3"/>
+                <ChatBot />
             </div>
             <TechStack />
         </>
