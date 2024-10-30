@@ -44,7 +44,7 @@ export default function Nav() {
     }
 
     return (
-      <nav className="nav w-[95%] h-[70px] left-1/2 -translate-x-1/2 rounded-full bg-sky-600 flex justify-between shadow-md shadow-[#000032cc] fixed invisible z-50 overflow-hidden">
+      <nav className="nav w-[95%] h-[70px] left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-t from-blue-700 to-blue-500 flex justify-between shadow-md shadow-[#000032cc] fixed invisible z-50 overflow-hidden">
         <Logo />
         <ul className={`${bangers.className} nav-list flex gap-20 px-20 text-3xl`}>
             <li className="nav-element tracking-wide flex content-center flex-wrap invisible text-white px-2 justify-start cursor-pointer" onMouseEnter={hover} onMouseLeave={hoverEnd} onClick={goToSection}>
