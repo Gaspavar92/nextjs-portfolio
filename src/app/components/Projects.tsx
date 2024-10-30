@@ -1,7 +1,6 @@
 import {gsap} from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import getProjects from "../netlify-projects";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { bangers, sono, protest } from "../fonts";
@@ -112,7 +111,10 @@ const Projects = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const projs = await getProjects();
+                const response = await fetch("/api/projects", {
+                    method: "GET"
+                });
+                const projs = await response.json()
                 setProjects(projs)
             } catch(err) {
                 setError(String(err))
