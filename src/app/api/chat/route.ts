@@ -4,7 +4,7 @@ export async function POST(req: NextRequest) {
   try {
     // Parse the JSON body from the request
     const { messages } = await req.json();
-    const apiKey = process.env.NEXT_PUBLIC_GPT_KEY;
+    const apiKey = process.env.GPT_KEY;
 
     // Make a request to the OpenAI API
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
