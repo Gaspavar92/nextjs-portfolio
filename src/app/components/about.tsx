@@ -46,6 +46,7 @@ export default function About() {
             })}</div>
             <div className="wrapper flex flex-col md:flex-row w-full h-full justify-evenly items-center gap-6">
                 <Image src={"/Gaspare-about.png"} height={"200"} width={"200"} alt={"Gaspare's picture with his son Noah"} className="about-image rounded-lg invisible h-1/2 w-full md:w-1/3"/>
+
                 <ChatBot />
             </div>
             <TechStack />

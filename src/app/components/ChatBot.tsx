@@ -53,12 +53,18 @@ const ChatBot = () => {
         if (chatRef.current) {
             chatRef.current.scrollTop = chatRef.current.scrollHeight;
         }
-    }, [chatHistory])
+    }, [chatHistory, loading])
 
     return (
 <div className="chatbot h-1/2 w-full md:w-1/3 flex flex-col justify-between gap-12 bg-gradient-to-t from-blue-700 to-blue-500 p-6 rounded-xl relative">
-    <div ref={chatRef} className="chat flex flex-col gap-6 w-full flex-grow overflow-y-auto h-[450px] pt-16">
-        <div className="chat-title text-center bg-blue-800 text-sky-200 w-full absolute left-0 top-0 py-6 rounded-t-xl text-lg">GaspaBOT 🤖</div>
+                <video autoPlay loop muted className="absolute z-10 -top-12 left-1/2 -translate-x-1/2">
+                    <source src="/Animation - 1730429598283.webm" type="video/webm" />
+                    Your browser does not support the video tag.
+                </video>
+    <div ref={chatRef} className="chat flex flex-col gap-6 w-full flex-grow overflow-y-auto h-[450px] pt-20">
+        <div className="chat-title text-center bg-blue-800 text-sky-200 w-full absolute left-0 top-0 py-6 rounded-t-xl text-lg">
+
+        </div>
         {chatHistory.length === 0 ?
         <ChatButtons handleClick={handleClick}/> :
         chatHistory.map((entry, index) => {
@@ -71,7 +77,11 @@ const ChatBot = () => {
             );
         })}
         {loading && (
-            <div className="bot bg-blue-500 text-white self-start w-fit px-6 py-2 rounded-xl">Typing...</div>
+            <div className="bot self-start h-fit px-4 py-2 rounded-xl">
+                <video autoPlay loop muted>
+                    <source src="/Animation - 1730431475309.webm" type="video/webm"/>
+                </video>
+            </div>
         )}
     </div>
     <form onSubmit={(e) => fetchResponse(e)} className="input w-full flex gap-2 h-12 self-end">
